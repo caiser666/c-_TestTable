@@ -115,42 +115,6 @@ namespace TableTest {
                     }
                 }
 
-
-
-                /*DataRow[] dataKomisi = dtKomisi.Select($"max_penghasilan >= {penghasilan} AND min_penghasilan < {penghasilan}");
-
-                if (dataKomisi.Length > 0) {
-                    int index = dtKomisi.Rows.IndexOf(dataKomisi[0]);
-                    for (int i = 0; i < index + 1; i++) {
-                        if (index == 0) {
-                            komisi = penghasilan * persens[i];
-                        } else {
-                            if (index == 1) {
-                                long sisa = penghasilan - penghasilans[i].Item2;
-                                komisi = penghasilans[0].Item2 * persens[0];
-                                komisi += sisa * persens[1];
-                            }
-                        }
-                    }
-                }*/
-
-
-                /*if (penghasilan >= penghasilans[0].Item1 && penghasilan <= penghasilans[0].Item2) {
-                    komisi = 0;
-                    komisi = penghasilan * persens[0];
-                } else if (penghasilan > penghasilans[0].Item2 && penghasilan <= penghasilans[1].Item2) {
-                    long sisa = penghasilan - penghasilans[0].Item2;
-                    komisi = 0;
-                    komisi = penghasilans[0].Item2 * persens[0];
-                    komisi += sisa * persens[1];
-                } else if (penghasilan > penghasilans[1].Item2 && penghasilan <= penghasilans[2].Item2) {
-                    long sisa = penghasilan - penghasilans[1].Item2;
-                    komisi = 0;
-                    komisi = penghasilans[0].Item2 * persens[0];
-                    komisi += (penghasilans[1].Item2 - penghasilans[0].Item2) * persens[1];
-                    komisi += sisa * persens[2];
-                }*/
- 
                 tbxKomisi.Text = komisi.ToString();
             } else {
                 tbxKomisi.Text = string.Empty;
