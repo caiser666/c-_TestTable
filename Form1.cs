@@ -90,29 +90,31 @@ namespace TableTest {
         }
 
         List<double> persens = new List<double> { };
+        List<(long, long)> penghasilans = new List<(long, long)> { };
 
         private void tbxPenghasilan_TextChanged(object sender, EventArgs e) {
             if (!string.IsNullOrEmpty(tbxPenghasilan.Text)) {
                 long penghasilan = Convert.ToInt64(tbxPenghasilan.Text);
                 double komisi = 0;
 
-                if (penghasilan <= 300000) {
+                
+
+                if (penghasilan >= penghasilans[0].Item1 && penghasilan <= penghasilans[0].Item2) {
                     komisi = 0;
                     komisi = penghasilan * persens[0];
-                } else if (penghasilan > 300000 && penghasilan <= 500000) {
-                    long sisa = penghasilan - 300000;
+                } else if (penghasilan > penghasilans[1].Item1 && penghasilan <= penghasilans[1].Item2) {
+                    long sisa = penghasilan - penghasilans[1].Item1;
                     komisi = 0;
-                    komisi = 300000 * persens[0];
+                    komisi = penghasilans[1].Item1 * persens[0];
                     komisi += sisa * persens[1];
-                } else {
-                    long sisa = penghasilan - 500000;
+                } else if (penghasilan > penghasilans[2].Item1 && penghasilan <= penghasilans[2].Item2) {
+                    long sisa = penghasilan - penghasilans[2].Item1;
                     komisi = 0;
-                    komisi = 300000 * persens[0];
-                    komisi += 200000 * persens[1];
+                    komisi = penghasilans[0].Item2 * persens[0];
+                    komisi += (penghasilans[1].Item2 - penghasilans[0].Item2) * persens[1];
                     komisi += sisa * persens[2];
                 }
-
-
+ 
                 tbxKomisi.Text = komisi.ToString();
             } else {
                 tbxKomisi.Text = string.Empty;
@@ -143,9 +145,13 @@ namespace TableTest {
                 foreach (DataRow dRow in dataTable.Rows) {
 
                     int komisi = Convert.ToInt32(dRow["komisi"]);
+                    long minPenghasilan = Convert.ToInt32(dRow["max_penghasilan"]);
+                    long maxPenghasilan = Convert.ToInt32(dRow["min_penghasilan"]);
                     double persen = (double)komisi / 100;
 
                     persens.Add(persen);
+
+                    penghasilans.Add((maxPenghasilan, minPenghasilan));
                 }
 
                 dgvKomisi.Columns["komisi"].HeaderText = "Komisi (%)";

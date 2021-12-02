@@ -30,3 +30,4 @@ C:\Users\caiser666\source\repos\TableTest\obj\Debug\TableTest.csproj.CoreCompile
 C:\Users\caiser666\source\repos\TableTest\obj\Debug\TableTest.csproj.CopyComplete
 C:\Users\caiser666\source\repos\TableTest\obj\Debug\TableTest.exe
 C:\Users\caiser666\source\repos\TableTest\obj\Debug\TableTest.pdb
+C:\Users\caiser666\source\repos\TableTest\obj\Debug\TableTest.csproj.AssemblyReference.cache
