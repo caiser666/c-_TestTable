@@ -136,6 +136,9 @@ namespace TableTest {
 
         private void showTableKomisi(DataTable dataTable) {
             try {
+                DataView dataView = dataTable.DefaultView;
+                dataView.Sort = "min_penghasilan ASC";
+
                 dgvKomisi.DataSource = dataTable;
 
                 dgvKomisi.Columns["created_at"].Visible = false;
