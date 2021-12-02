@@ -97,9 +97,45 @@ namespace TableTest {
                 long penghasilan = Convert.ToInt64(tbxPenghasilan.Text);
                 double komisi = 0;
 
-                
+                for (int i = 0; i < penghasilans.Count; i++) {
+                    if (penghasilan >= penghasilans[i].Item1 && penghasilan <= penghasilans[i].Item2) {
+                        if (i == 0) {
+                            komisi = penghasilan * persens[i];
+                        } else {
+                            long sisa = penghasilan - penghasilans[i-1].Item2;
+                            if (sisa > 0) {
+                                komisi += penghasilans[0].Item2 * persens[0];
+                                for (int j = 1; j < i; j++) {
+                                    komisi += (penghasilans[j].Item2 - penghasilans[j-1].Item2) * persens[j];
+                                }
+                                komisi += sisa * persens[i];
+                            } 
+                        }
 
-                if (penghasilan >= penghasilans[0].Item1 && penghasilan <= penghasilans[0].Item2) {
+                    }
+                }
+
+
+
+                /*DataRow[] dataKomisi = dtKomisi.Select($"max_penghasilan >= {penghasilan} AND min_penghasilan < {penghasilan}");
+
+                if (dataKomisi.Length > 0) {
+                    int index = dtKomisi.Rows.IndexOf(dataKomisi[0]);
+                    for (int i = 0; i < index + 1; i++) {
+                        if (index == 0) {
+                            komisi = penghasilan * persens[i];
+                        } else {
+                            if (index == 1) {
+                                long sisa = penghasilan - penghasilans[i].Item2;
+                                komisi = penghasilans[0].Item2 * persens[0];
+                                komisi += sisa * persens[1];
+                            }
+                        }
+                    }
+                }*/
+
+
+                /*if (penghasilan >= penghasilans[0].Item1 && penghasilan <= penghasilans[0].Item2) {
                     komisi = 0;
                     komisi = penghasilan * persens[0];
                 } else if (penghasilan > penghasilans[0].Item2 && penghasilan <= penghasilans[1].Item2) {
@@ -113,7 +149,7 @@ namespace TableTest {
                     komisi = penghasilans[0].Item2 * persens[0];
                     komisi += (penghasilans[1].Item2 - penghasilans[0].Item2) * persens[1];
                     komisi += sisa * persens[2];
-                }
+                }*/
  
                 tbxKomisi.Text = komisi.ToString();
             } else {
