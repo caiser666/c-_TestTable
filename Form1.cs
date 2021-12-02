@@ -89,9 +89,6 @@ namespace TableTest {
             }
         }
 
-        List<double> persens = new List<double> { };
-        List<(long, long)> penghasilans = new List<(long, long)> { };
-
         private void tbxPenghasilan_TextChanged(object sender, EventArgs e) {
             if (!string.IsNullOrEmpty(tbxPenghasilan.Text)) {
                 long penghasilan = Convert.ToInt64(tbxPenghasilan.Text);
@@ -114,24 +111,6 @@ namespace TableTest {
 
                     }
                 }
-
-                /*for (int i = 0; i < penghasilans.Count; i++) {
-                    if (penghasilan >= penghasilans[i].Item1 && penghasilan <= penghasilans[i].Item2) {
-                        if (i == 0) {
-                            komisi = penghasilan * persens[i];
-                        } else {
-                            long sisa = penghasilan - penghasilans[i-1].Item2;
-                            if (sisa > 0) {
-                                komisi += penghasilans[0].Item2 * persens[0];
-                                for (int j = 1; j < i; j++) {
-                                    komisi += (penghasilans[j].Item2 - penghasilans[j-1].Item2) * persens[j];
-                                }
-                                komisi += sisa * persens[i];
-                            } 
-                        }
-
-                    }
-                }*/
 
                 tbxKomisi.Text = komisi.ToString();
             } else {
@@ -176,10 +155,6 @@ namespace TableTest {
                     KomisiData komisiData = new KomisiData(maxPenghasilan, minPenghasilan, persen, deskripsi);
 
                     komisiDatas.Add(komisiData);
-
-                    /*persens.Add(persen);
-
-                    penghasilans.Add((maxPenghasilan, minPenghasilan));*/
                 }
 
                 dgvKomisi.Columns["komisi"].HeaderText = "Komisi (%)";

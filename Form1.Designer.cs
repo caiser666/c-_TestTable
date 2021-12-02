@@ -51,7 +51,7 @@ namespace TableTest {
             // 
             this.tbxNIP.Location = new System.Drawing.Point(110, 16);
             this.tbxNIP.Name = "tbxNIP";
-            this.tbxNIP.Size = new System.Drawing.Size(100, 20);
+            this.tbxNIP.Size = new System.Drawing.Size(153, 20);
             this.tbxNIP.TabIndex = 0;
             // 
             // label1
@@ -65,7 +65,7 @@ namespace TableTest {
             // 
             // btnSimpan
             // 
-            this.btnSimpan.Location = new System.Drawing.Point(234, 144);
+            this.btnSimpan.Location = new System.Drawing.Point(188, 176);
             this.btnSimpan.Name = "btnSimpan";
             this.btnSimpan.Size = new System.Drawing.Size(75, 23);
             this.btnSimpan.TabIndex = 2;
@@ -77,21 +77,21 @@ namespace TableTest {
             // 
             this.tbxNama.Location = new System.Drawing.Point(110, 42);
             this.tbxNama.Name = "tbxNama";
-            this.tbxNama.Size = new System.Drawing.Size(100, 20);
+            this.tbxNama.Size = new System.Drawing.Size(153, 20);
             this.tbxNama.TabIndex = 3;
             // 
             // tbxNoMobil
             // 
             this.tbxNoMobil.Location = new System.Drawing.Point(110, 94);
             this.tbxNoMobil.Name = "tbxNoMobil";
-            this.tbxNoMobil.Size = new System.Drawing.Size(100, 20);
+            this.tbxNoMobil.Size = new System.Drawing.Size(153, 20);
             this.tbxNoMobil.TabIndex = 4;
             // 
             // tbxPenghasilan
             // 
             this.tbxPenghasilan.Location = new System.Drawing.Point(110, 120);
             this.tbxPenghasilan.Name = "tbxPenghasilan";
-            this.tbxPenghasilan.Size = new System.Drawing.Size(100, 20);
+            this.tbxPenghasilan.Size = new System.Drawing.Size(153, 20);
             this.tbxPenghasilan.TabIndex = 5;
             this.tbxPenghasilan.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tbxPenghasilan.TextChanged += new System.EventHandler(this.tbxPenghasilan_TextChanged);
@@ -127,7 +127,7 @@ namespace TableTest {
             // 
             this.dtpTanggal.Location = new System.Drawing.Point(110, 68);
             this.dtpTanggal.Name = "dtpTanggal";
-            this.dtpTanggal.Size = new System.Drawing.Size(173, 20);
+            this.dtpTanggal.Size = new System.Drawing.Size(153, 20);
             this.dtpTanggal.TabIndex = 9;
             // 
             // label5
@@ -152,7 +152,7 @@ namespace TableTest {
             // 
             this.tbxKomisi.Location = new System.Drawing.Point(110, 146);
             this.tbxKomisi.Name = "tbxKomisi";
-            this.tbxKomisi.Size = new System.Drawing.Size(100, 20);
+            this.tbxKomisi.Size = new System.Drawing.Size(153, 20);
             this.tbxKomisi.TabIndex = 12;
             this.tbxKomisi.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -160,9 +160,9 @@ namespace TableTest {
             // 
             this.groupBox1.Controls.Add(this.dgvPegawai);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox1.Location = new System.Drawing.Point(0, 192);
+            this.groupBox1.Location = new System.Drawing.Point(0, 208);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(800, 258);
+            this.groupBox1.Size = new System.Drawing.Size(800, 242);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Table";
@@ -175,15 +175,15 @@ namespace TableTest {
             this.dgvPegawai.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPegawai.Location = new System.Drawing.Point(3, 16);
             this.dgvPegawai.Name = "dgvPegawai";
-            this.dgvPegawai.Size = new System.Drawing.Size(794, 239);
+            this.dgvPegawai.Size = new System.Drawing.Size(794, 223);
             this.dgvPegawai.TabIndex = 0;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dgvKomisi);
-            this.groupBox2.Location = new System.Drawing.Point(358, 10);
+            this.groupBox2.Location = new System.Drawing.Point(413, 10);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(439, 192);
+            this.groupBox2.Size = new System.Drawing.Size(384, 192);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "RUMUS KOMISI";
@@ -196,7 +196,7 @@ namespace TableTest {
             this.dgvKomisi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvKomisi.Location = new System.Drawing.Point(3, 16);
             this.dgvKomisi.Name = "dgvKomisi";
-            this.dgvKomisi.Size = new System.Drawing.Size(433, 173);
+            this.dgvKomisi.Size = new System.Drawing.Size(378, 173);
             this.dgvKomisi.TabIndex = 0;
             // 
             // Form1
@@ -205,6 +205,7 @@ namespace TableTest {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.btnSimpan);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tbxKomisi);
             this.Controls.Add(this.label6);
@@ -216,7 +217,6 @@ namespace TableTest {
             this.Controls.Add(this.tbxPenghasilan);
             this.Controls.Add(this.tbxNoMobil);
             this.Controls.Add(this.tbxNama);
-            this.Controls.Add(this.btnSimpan);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbxNIP);
             this.Name = "Form1";
