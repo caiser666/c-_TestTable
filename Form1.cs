@@ -102,13 +102,13 @@ namespace TableTest {
                 if (penghasilan >= penghasilans[0].Item1 && penghasilan <= penghasilans[0].Item2) {
                     komisi = 0;
                     komisi = penghasilan * persens[0];
-                } else if (penghasilan > penghasilans[1].Item1 && penghasilan <= penghasilans[1].Item2) {
-                    long sisa = penghasilan - penghasilans[1].Item1;
+                } else if (penghasilan > penghasilans[0].Item2 && penghasilan <= penghasilans[1].Item2) {
+                    long sisa = penghasilan - penghasilans[0].Item2;
                     komisi = 0;
-                    komisi = penghasilans[1].Item1 * persens[0];
+                    komisi = penghasilans[0].Item2 * persens[0];
                     komisi += sisa * persens[1];
-                } else if (penghasilan > penghasilans[2].Item1 && penghasilan <= penghasilans[2].Item2) {
-                    long sisa = penghasilan - penghasilans[2].Item1;
+                } else if (penghasilan > penghasilans[1].Item2 && penghasilan <= penghasilans[2].Item2) {
+                    long sisa = penghasilan - penghasilans[1].Item2;
                     komisi = 0;
                     komisi = penghasilans[0].Item2 * persens[0];
                     komisi += (penghasilans[1].Item2 - penghasilans[0].Item2) * persens[1];
