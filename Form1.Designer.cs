@@ -152,6 +152,7 @@ namespace TableTest {
             // 
             this.tbxKomisi.Location = new System.Drawing.Point(110, 146);
             this.tbxKomisi.Name = "tbxKomisi";
+            this.tbxKomisi.ReadOnly = true;
             this.tbxKomisi.Size = new System.Drawing.Size(153, 20);
             this.tbxKomisi.TabIndex = 12;
             this.tbxKomisi.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -181,9 +182,9 @@ namespace TableTest {
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dgvKomisi);
-            this.groupBox2.Location = new System.Drawing.Point(413, 10);
+            this.groupBox2.Location = new System.Drawing.Point(309, 10);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(384, 192);
+            this.groupBox2.Size = new System.Drawing.Size(488, 192);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "RUMUS KOMISI";
@@ -196,7 +197,7 @@ namespace TableTest {
             this.dgvKomisi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvKomisi.Location = new System.Drawing.Point(3, 16);
             this.dgvKomisi.Name = "dgvKomisi";
-            this.dgvKomisi.Size = new System.Drawing.Size(378, 173);
+            this.dgvKomisi.Size = new System.Drawing.Size(482, 173);
             this.dgvKomisi.TabIndex = 0;
             // 
             // Form1

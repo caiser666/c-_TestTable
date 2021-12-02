@@ -77,6 +77,7 @@ namespace TableTest {
             int ret = Database.Create(tbPegawai, pegawai, ref refMessage);
 
             if (ret == 0) {
+                dtPegawai = new DataTable();
                 ret = Database.Read(tbPegawai, ref dtPegawai, ref refMessage);
 
                 if (ret == 0) {
@@ -125,6 +126,13 @@ namespace TableTest {
                 dgvPegawai.Columns["trx_id"].Visible = false;
                 dgvPegawai.Columns["created_at"].Visible = false;
 
+                dgvPegawai.Columns["nip"].HeaderText = "NIP";
+                dgvPegawai.Columns["nama"].HeaderText = "Nama Pengemudi";
+                dgvPegawai.Columns["tanggal"].HeaderText = "Tanggal SIO";
+                dgvPegawai.Columns["no_mobil"].HeaderText = "No Mobil";
+                dgvPegawai.Columns["penghasilan"].HeaderText = "Penghasilan (Rp)";
+                dgvPegawai.Columns["komisi"].HeaderText = "Komisi (Rp)";
+
                 dgvPegawai.Sort(dgvPegawai.Columns["created_at"], ListSortDirection.Descending);
             } catch (Exception) {
                 return;
@@ -157,7 +165,10 @@ namespace TableTest {
                     komisiDatas.Add(komisiData);
                 }
 
-                dgvKomisi.Columns["komisi"].HeaderText = "Komisi (%)";
+                dgvKomisi.Columns["max_penghasilan"].HeaderText = "Maksimal Penghasilan (Rp)";
+                dgvKomisi.Columns["min_penghasilan"].HeaderText = "Mininal Penghasilan (Rp)";
+                dgvKomisi.Columns["komisi"].HeaderText = "Persen Komisi (%)";
+                dgvKomisi.Columns["deskripsi"].HeaderText = "Deskripsi";
 
 
                 dgvKomisi.Sort(dgvPegawai.Columns["created_at"], ListSortDirection.Descending);
