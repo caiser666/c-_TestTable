@@ -19,22 +19,6 @@ namespace TableTest {
         }
     }
 
-    class Pegawai {
-        public string Nama, NIP, Tanggal, NoMobil;
-        public string TransaksiId;
-        public long Penghasilan, Komisi;
-
-        public Pegawai(string  nip, string nama, string tanggal, string noMobil, string transaksiId, long penghasilan, long komisi) {
-            NIP = nip;
-            Nama = nama;
-            Tanggal = tanggal;
-            NoMobil = noMobil;
-            TransaksiId = transaksiId;
-            Penghasilan = penghasilan;
-            Komisi = komisi;
-        }
-    }
-
 
     internal class Database {
 

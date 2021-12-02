@@ -97,7 +97,25 @@ namespace TableTest {
                 long penghasilan = Convert.ToInt64(tbxPenghasilan.Text);
                 double komisi = 0;
 
-                for (int i = 0; i < penghasilans.Count; i++) {
+                for (int i = 0; i < komisiDatas.Count; i++) {
+                    if (penghasilan >= komisiDatas[i].MinPenghasilan && penghasilan <= komisiDatas[i].MaxPenghasilan) {
+                        if (i == 0) {
+                            komisi = penghasilan * komisiDatas[i].PersenKomisi;
+                        } else {
+                            long sisa = penghasilan - komisiDatas[i - 1].MaxPenghasilan;
+                            if (sisa > 0) {
+                                komisi += komisiDatas[0].MaxPenghasilan * komisiDatas[0].PersenKomisi;
+                                for (int j = 1; j < i; j++) {
+                                    komisi += (komisiDatas[j].MaxPenghasilan - komisiDatas[j - 1].MaxPenghasilan) * komisiDatas[j].PersenKomisi;
+                                }
+                                komisi += sisa * komisiDatas[i].PersenKomisi;
+                            }
+                        }
+
+                    }
+                }
+
+                /*for (int i = 0; i < penghasilans.Count; i++) {
                     if (penghasilan >= penghasilans[i].Item1 && penghasilan <= penghasilans[i].Item2) {
                         if (i == 0) {
                             komisi = penghasilan * persens[i];
@@ -113,7 +131,7 @@ namespace TableTest {
                         }
 
                     }
-                }
+                }*/
 
                 tbxKomisi.Text = komisi.ToString();
             } else {
@@ -134,6 +152,8 @@ namespace TableTest {
             }
         }
 
+        List<KomisiData> komisiDatas = new List<KomisiData> { };
+
         private void showTableKomisi(DataTable dataTable) {
             try {
                 DataView dataView = dataTable.DefaultView;
@@ -148,13 +168,18 @@ namespace TableTest {
                 foreach (DataRow dRow in dataTable.Rows) {
 
                     int komisi = Convert.ToInt32(dRow["komisi"]);
-                    long minPenghasilan = Convert.ToInt32(dRow["max_penghasilan"]);
-                    long maxPenghasilan = Convert.ToInt32(dRow["min_penghasilan"]);
+                    string deskripsi = (string)dRow["deskripsi"];
+                    long maxPenghasilan = Convert.ToInt32(dRow["max_penghasilan"]);
+                    long minPenghasilan = Convert.ToInt32(dRow["min_penghasilan"]);
                     double persen = (double)komisi / 100;
 
-                    persens.Add(persen);
+                    KomisiData komisiData = new KomisiData(maxPenghasilan, minPenghasilan, persen, deskripsi);
 
-                    penghasilans.Add((maxPenghasilan, minPenghasilan));
+                    komisiDatas.Add(komisiData);
+
+                    /*persens.Add(persen);
+
+                    penghasilans.Add((maxPenghasilan, minPenghasilan));*/
                 }
 
                 dgvKomisi.Columns["komisi"].HeaderText = "Komisi (%)";
@@ -165,5 +190,35 @@ namespace TableTest {
                 return;
             }
         }
+    }
+
+    class Pegawai {
+        public string Nama, NIP, Tanggal, NoMobil;
+        public string TransaksiId;
+        public long Penghasilan, Komisi;
+
+        public Pegawai(string nip, string nama, string tanggal, string noMobil, string transaksiId, long penghasilan, long komisi) {
+            NIP = nip;
+            Nama = nama;
+            Tanggal = tanggal;
+            NoMobil = noMobil;
+            TransaksiId = transaksiId;
+            Penghasilan = penghasilan;
+            Komisi = komisi;
+        }
+    }
+
+    public class KomisiData {
+        public long MaxPenghasilan, MinPenghasilan;
+        public double PersenKomisi;
+        public string Deskripsi;
+
+        public KomisiData(long maxPenghasilan, long minPenghasilan, double persenKomisi, string deskripsi) {
+            MaxPenghasilan = maxPenghasilan;
+            MinPenghasilan = minPenghasilan;
+            PersenKomisi = persenKomisi;
+            Deskripsi = deskripsi;
+        }
+
     }
 }
