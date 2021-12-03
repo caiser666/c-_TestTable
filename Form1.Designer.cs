@@ -41,6 +41,7 @@ namespace TableTest {
             this.dgvPegawai = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvKomisi = new System.Windows.Forms.DataGridView();
+            this.lblDeskripsi = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPegawai)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -163,7 +164,7 @@ namespace TableTest {
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox1.Location = new System.Drawing.Point(0, 208);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(800, 242);
+            this.groupBox1.Size = new System.Drawing.Size(1191, 242);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Table";
@@ -176,13 +177,13 @@ namespace TableTest {
             this.dgvPegawai.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPegawai.Location = new System.Drawing.Point(3, 16);
             this.dgvPegawai.Name = "dgvPegawai";
-            this.dgvPegawai.Size = new System.Drawing.Size(794, 223);
+            this.dgvPegawai.Size = new System.Drawing.Size(1185, 223);
             this.dgvPegawai.TabIndex = 0;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dgvKomisi);
-            this.groupBox2.Location = new System.Drawing.Point(309, 10);
+            this.groupBox2.Location = new System.Drawing.Point(700, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(488, 192);
             this.groupBox2.TabIndex = 15;
@@ -200,11 +201,21 @@ namespace TableTest {
             this.dgvKomisi.Size = new System.Drawing.Size(482, 173);
             this.dgvKomisi.TabIndex = 0;
             // 
+            // lblDeskripsi
+            // 
+            this.lblDeskripsi.AutoSize = true;
+            this.lblDeskripsi.Location = new System.Drawing.Point(366, 22);
+            this.lblDeskripsi.Name = "lblDeskripsi";
+            this.lblDeskripsi.Size = new System.Drawing.Size(10, 13);
+            this.lblDeskripsi.TabIndex = 16;
+            this.lblDeskripsi.Text = "-";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1191, 450);
+            this.Controls.Add(this.lblDeskripsi);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnSimpan);
             this.Controls.Add(this.groupBox1);
@@ -251,6 +262,7 @@ namespace TableTest {
         private System.Windows.Forms.DataGridView dgvPegawai;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dgvKomisi;
+        private System.Windows.Forms.Label lblDeskripsi;
     }
 }
 

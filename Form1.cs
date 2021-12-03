@@ -152,6 +152,8 @@ namespace TableTest {
                 dgvKomisi.Columns["updated_at"].Visible = false;
                 dgvKomisi.Columns["id"].Visible = false;
 
+                StringBuilder deskripsis = new StringBuilder();
+
                 foreach (DataRow dRow in dataTable.Rows) {
 
                     int komisi = Convert.ToInt32(dRow["komisi"]);
@@ -163,7 +165,11 @@ namespace TableTest {
                     KomisiData komisiData = new KomisiData(maxPenghasilan, minPenghasilan, persen, deskripsi);
 
                     komisiDatas.Add(komisiData);
+
+                    deskripsis.AppendLine($"* Penghasilan = {minPenghasilan} s/d {maxPenghasilan} => Komisi {komisi}%");
                 }
+
+                lblDeskripsi.Text = deskripsis.ToString();
 
                 dgvKomisi.Columns["max_penghasilan"].HeaderText = "Maksimal Penghasilan (Rp)";
                 dgvKomisi.Columns["min_penghasilan"].HeaderText = "Mininal Penghasilan (Rp)";
